@@ -39,29 +39,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(centerTitle: true, title: Text('Rest API Call')),
-        body: ListView.builder(
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-            final user = users[index];
-            final email = user.gender;
-            // final name = user.n
-            // final names = user['name'];
-            // final name = names['last'];//!because the name have three values
-            // final name = user['name']['last']; //TODO: good paractice
-            // final email = user['email'];
-            // final photo = user['picture']['medium'];
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
+            itemCount: users.length,
+            itemBuilder: (context, index) {
+              final user = users[index];
+              final email = user.gender;
+              // final name = user.n
+              // final names = user['name'];
+              // final name = names['last'];//!because the name have three values
+              // final name = user['name']['last']; //TODO: good paractice
+              // final email = user['email'];
+              // final photo = user['picture']['medium'];
 
-            return ListTile(
-              tileColor: user.gender == 'male'
-                  ? Colors.blue.shade100
-                  : Colors.pink.shade100,
-              leading: CircleAvatar(
-                  radius: 30,
-                  backgroundImage: NetworkImage('${user.photo.large}')),
-              title: Text(user.fullName()),
-              subtitle: Text(user.phone),
-            );
-          },
+              return ListTile(
+                tileColor: user.gender == 'male'
+                    ? Colors.blue.shade100
+                    : Colors.pink.shade100,
+                leading: CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage('${user.photo.large}')),
+                title: Text(user.fullName()),
+                subtitle: Text(user.phone),
+              );
+            },
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: fetchUser,
