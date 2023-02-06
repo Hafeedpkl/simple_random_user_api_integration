@@ -24,6 +24,25 @@ class User {
       required this.dob,
       required this.location});
 
+  factory User.fromJson(Map<String, dynamic> e) {
+    final photo = Picture.fromMap(e['picture']);
+    final name = UserName.fromMap(e['name']);
+
+    final dob = UserDob.fromMap(e['dob']);
+    final location = UserLocation.fomMap(e['location']);
+
+    return User(
+        gender: e['gender'],
+        email: e['email'],
+        phone: e['phone'],
+        cell: e['cell'],
+        nat: e['nat'],
+        name: name,
+        photo: photo,
+        dob: dob,
+        location: location);
+  }
+
   String fullName() {
     return '${name.title} ${name.first} ${name.last}';
   }
