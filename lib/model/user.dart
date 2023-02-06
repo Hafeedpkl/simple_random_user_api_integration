@@ -1,3 +1,6 @@
+import 'package:week16_api_learning/model/user_name.dart';
+import 'package:week16_api_learning/model/user_photo.dart';
+
 class User {
   final String gender;
   final String email;
@@ -15,28 +18,9 @@ class User {
       required this.cell,
       required this.nat,
       required this.photo});
-}
 
-class UserName {
-  final String title;
-  final String first;
-  final String last;
+  String fullName() {
 
-  UserName({
-    required this.title,
-    required this.first,
-    required this.last,
-  });
-}
-
-class Picture {
-  final String large;
-  final String medium;
-  final String thumbnail;
-
-  Picture({
-    required this.large,
-    required this.medium,
-    required this.thumbnail,
-  });
+    return '${name.title} ${name.first} ${name.last}';
+  }
 }
