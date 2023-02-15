@@ -27,7 +27,6 @@ class User {
   factory User.fromJson(Map<String, dynamic> e) {
     final photo = Picture.fromMap(e['picture']);
     final name = UserName.fromMap(e['name']);
-
     final dob = UserDob.fromMap(e['dob']);
     final location = UserLocation.fomMap(e['location']);
 

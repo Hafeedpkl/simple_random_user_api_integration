@@ -18,7 +18,7 @@ class UserLocation {
       required this.postcode,
       required this.street});
   factory UserLocation.fomMap(Map<String, dynamic> json) {
-    final coordinates = LocationCoordinates.fromMap(json['cordinates']);
+    final coordinates = LocationCoordinates.fromMap(json['coordinates']);
     final street = LocationStreet.fromMap(json['street']);
     final timezone = LocationTimezone.fromMap(json['timezone']);
     return UserLocation(
